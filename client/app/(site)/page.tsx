@@ -11,8 +11,8 @@ export default function AuthPage() {
         height={200}
         className="mx-auto"
       />
-      <h1 className="mt-4 text-center text-3xl font-bold tracking-tight">
-        Sign in to your account
+      <h1 className="mt-4 text-center text-4xl text-transparent bg-clip-text bg-gradient-to-t from-primary to-secondary py-1 font-bold tracking-tight">
+        Welcome to Hola Amigo !
       </h1>
       <AuthForm />
     </main>

@@ -97,6 +97,26 @@ const AuthForm = () => {
               onClick={() => socialAction("google")}
             />
           </div>
+          <div
+            className="
+          flex
+          gap-2
+          justify-center
+          text-sm
+          mt-6
+          px-2
+          text-gray-500
+          "
+          >
+            <span>
+              {variant === "LOGIN"
+                ? "Don't have an account?"
+                : "Already have an account?"}
+            </span>
+            <button onClick={toggleVariant} className="text-gray-700 underline">
+              {variant === "LOGIN" ? "Create an account" : "Sign in"}
+            </button>
+          </div>
         </div>
       </div>
     </main>
