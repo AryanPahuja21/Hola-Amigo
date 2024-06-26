@@ -9,6 +9,7 @@ export default function AuthPage() {
         alt="Hola Amigo"
         width={200}
         height={200}
+        priority
         className="mx-auto"
       />
       <h1 className="mt-4 text-center text-4xl text-transparent bg-clip-text bg-gradient-to-t from-primary to-secondary py-1 font-bold tracking-tight">

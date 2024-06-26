@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import { BsGithub, BsGoogle } from "react-icons/bs";
 import Button from "@/app/_components/Button";
 import Input from "@/app/_components/inputs/Input";
@@ -34,7 +35,10 @@ const AuthForm = () => {
 
     try {
       if (variant === "REGISTER") {
-        // Register using Axios
+        axios.post("/api/register", data).then((res) => {
+          setIsLoading(false);
+          console.log(res.data);
+        });
       }
       if (variant === "LOGIN") {
         // NextAuth signIn
