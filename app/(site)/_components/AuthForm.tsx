@@ -4,17 +4,26 @@ import axios from "axios";
 import { BsGithub, BsGoogle } from "react-icons/bs";
 import Button from "@/app/_components/Button";
 import Input from "@/app/_components/inputs/Input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import AuthSocialButton from "./AuthSocialButton";
 import { toast } from "react-hot-toast";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 type variant = "LOGIN" | "REGISTER";
 
 const AuthForm = () => {
+  const session = useSession();
+  const router = useRouter();
   const [variant, setVariant] = useState<variant>("LOGIN");
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (session?.status === "authenticated") {
+      console.log("User is authenticated");
+    }
+  }, [session?.status]);
 
   const toggleVariant = () => {
     setVariant((prev) => (prev === "LOGIN" ? "REGISTER" : "LOGIN"));
@@ -39,9 +48,25 @@ const AuthForm = () => {
       if (variant === "REGISTER") {
         axios
           .post("/api/register", data)
-          .then((res) => {
-            if (res.status === 200) {
-              toast.success("Account created successfully");
+          .then((response) => {
+            if (response.status === 200) {
+              signIn("credentials", {
+                redirect: false,
+                ...data,
+              })
+                .then((result) => {
+                  if (result?.error) {
+                    toast.error(result.error);
+                  } else {
+                    toast.success("Successfully registered and logged in");
+                    router.push("/users");
+                  }
+                })
+                .catch((signInError) => {
+                  toast.error("Sign-in failed: " + signInError.message);
+                });
+            } else {
+              toast.error("Registration failed");
             }
           })
           .catch(() => {
@@ -62,6 +87,7 @@ const AuthForm = () => {
             }
             if (callback?.ok && !callback?.error) {
               toast.success("Logged in successfully");
+              router.push("/users");
             }
           })
           .finally(() => {
@@ -83,6 +109,7 @@ const AuthForm = () => {
         }
         if (callback?.ok && !callback?.error) {
           toast.success("Logged in successfully");
+          router.push("/users");
         }
       })
       .finally(() => {
