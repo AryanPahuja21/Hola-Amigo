@@ -4,7 +4,6 @@ import { HiChat } from "react-icons/hi";
 import { HiArrowLeftOnRectangle, HiUsers } from "react-icons/hi2";
 import { signOut } from "next-auth/react";
 import useConversion from "./useConversation";
-import { IconBase } from "react-icons";
 
 const useRoutes = () => {
   const pathname = usePathname();

@@ -28,7 +28,8 @@ const DesktopItem: React.FC<DesktopItemProps> = ({
     <li onClick={handleClick}>
       <Link
         href={href}
-        className={clsx(`
+        className={clsx(
+          `
         group
         flex
         gap-x-3
@@ -40,7 +41,9 @@ const DesktopItem: React.FC<DesktopItemProps> = ({
         text-gray-500
         hover:text-black
         hover:bg-gray-100
-        `)}
+        `,
+          active && "bg-gray-100 text-gray-900"
+        )}
       >
         <Icon className="h-6 w-6 shrink-0" />
         <span className="sr-only">{label}</span>
