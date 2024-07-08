@@ -59,7 +59,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
           hover:opacity-75
           transition"
           >
-            <MdOutlineGroupAdd />
+            <MdOutlineGroupAdd size={20} />
           </div>
         </div>
         {items?.map((item) => (

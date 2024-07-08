@@ -8,7 +8,7 @@ const useOtherUser = (
 ) => {
   const session = useSession();
 
-  const otherUseer = useMemo(() => {
+  const otherUser = useMemo(() => {
     const currentUserEmail = session?.data?.user?.email;
 
     const otherUser = conversation.users.filter(
@@ -17,5 +17,8 @@ const useOtherUser = (
 
     return otherUser[0];
   }, [session?.data?.user?.email, conversation.users]);
+
+  return otherUser;
 };
+
 export default useOtherUser;
