@@ -8,9 +8,10 @@ export default async function ConversationsLayout({
   children: React.ReactNode;
 }) {
   const conversations = await getConversations();
+
   return (
     <Sidebar>
-      <ConversationList initialItems={conversations!} />
+      <ConversationList initialItems={conversations} />
       <main className="h-full">{children}</main>
     </Sidebar>
   );
