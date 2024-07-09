@@ -71,14 +71,17 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
     rounded-lg
     transition
     cursor-pointer
+    px-1
     `,
         selected ? "bg-neutral-100" : "bg-white"
       )}
     >
-      <Avatar user={otherUser} />
+      <div className="mt-2">
+        <Avatar user={otherUser} />
+      </div>
       <div className="min-w-0 flex-1">
         <div className="focus:outline-none">
-          <div className="flex justify-between items-center mb-1">
+          <div className="flex justify-between items-center">
             <p className="text-md font-medium text-gray-900">
               {data.name || otherUser.name}
             </p>
