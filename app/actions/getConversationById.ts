@@ -18,7 +18,8 @@ const getConversationById = async (conversationId: string) => {
       },
     });
   } catch (err: any) {
-    console.error(err);
     return null;
   }
 };
+
+export default getConversationById;
