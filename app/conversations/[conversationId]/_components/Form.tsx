@@ -29,7 +29,7 @@ const Form = () => {
   };
 
   return (
-    <div className="fixed bottom-0 py-4 px-4 bg-white border-t flex items-center gap-2 lg:gap-4 w-full">
+    <div className="py-4 px-4 bg-white border-t flex items-center gap-2 lg:gap-4 w-full">
       <HiPhoto size={30} className="text-sky-500" />
       <form
         className="flex items-center gap-2 lg:gap-4 w-full"
