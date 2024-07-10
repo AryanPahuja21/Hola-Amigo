@@ -60,7 +60,10 @@ export async function POST(request: Request) {
         },
       },
     });
+
+    return new NextResponse("Created", { status: 201 });
   } catch (error: any) {
+    console.error(error);
     return new NextResponse("InternalError", { status: 500 });
   }
 }
