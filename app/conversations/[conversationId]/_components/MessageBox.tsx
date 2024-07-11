@@ -42,16 +42,14 @@ const MessageBox: React.FC<MessageBoxProps> = ({ isLast, data }) => {
           </div>
         </div>
         <div className={message}>
-          {data.image ? (
+          {data.image && (
             <Image
               alt="Image"
               src={data.image}
               width={200}
               height={200}
-              className="object-cover cursor-pointer hover:scale-110 transition translate"
+              className="object-cover cursor-pointer hover:scale-105 transition translate"
             />
-          ) : (
-            <div>{data.body}</div>
           )}
         </div>
         {isLast && isOwn && seenList.length > 0 && (

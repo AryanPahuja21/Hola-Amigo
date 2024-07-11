@@ -56,6 +56,8 @@ export async function POST(request: Request, { params }: { params: IParams }) {
         },
       },
     });
+
+    return NextResponse.json(updatedMessage);
   } catch (error: any) {
     return new NextResponse("Internal Error", { status: 500 });
   }
