@@ -91,7 +91,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                   />
                   <CldUploadButton
                     options={{ maxFiles: 1 }}
-                    onUploadAdded={handleUpload}
+                    onSuccess={handleUpload}
                     uploadPreset="jyqv9xem"
                   >
                     <Button disabled={isLoading} secondary type="button">
