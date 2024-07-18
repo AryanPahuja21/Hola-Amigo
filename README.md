@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# HolaAmigo
+
+HolaAmigo is a chat application built using Next.js. This application leverages a modern tech stack to provide a seamless, real-time chatting experience.
+
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Scripts](#scripts)
+- [Environment Variables](#environment-variables)
+- [License](#license)
+
+## Features
+
+- Real-time chat functionality
+- User authentication with NextAuth
+- Responsive UI with Tailwind CSS
+- Image uploads with Cloudinary
+- Form handling with React Hook Form
+- Toast notifications with React Hot Toast
+
+## Tech Stack
+
+- **Framework**: Next.js
+- **Styling**: Tailwind CSS
+- **Authentication**: NextAuth.js
+- **Database**: Prisma with MongoDB
+- **State Management**: React Hook Form
+- **Notifications**: React Hot Toast
+- **Image Handling**: Next-Cloudinary
+- **Real-time Updates**: Pusher
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js
+- MongoDB
+
+### Installation
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/your-username/hola-amigo.git
+   cd hola-amigo
+   ```
+
+2. Install dependencies:
+
+   ```sh
+   npm install
+   ```
+
+3. Set up the database:
+
+   ```sh
+   npx prisma migrate dev
+   ```
+
+4. Generate Prisma Client:
+   ```sh
+   npx prisma generate
+   ```
+
+### Running the Application
+
+1. Start the development server:
+
+   ```sh
+   npm run dev
+   ```
+
+2. Open your browser and navigate to `http://localhost:3000`.
+
+## Scripts
+
+- `postinstall`: Generates Prisma client
+- `dev`: Starts the development server
+- `build`: Generates Prisma client and builds the application
+- `start`: Starts the application
+- `lint`: Runs ESLint
+
+## Environment Variables
+
+Create a `.env` file in the root directory and add the following environment variables:
+
+```env
+DATABASE_URL=your_database_url
+NEXTAUTH_SECRET="NEXTAUTH_SECRET"
+
+GITHUB_ID=your_github_id
+GITHUB_SECRET=your_github_secret
+
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_next_cloudinary_cloud_name
+NEXT_CLOUDINARY_PRESET=your_next_cloudinary_preset
+
+NEXT_PUBLIC_PUSHER_APP_KEY=your_pusher_app_key
+PUSHER_APP_ID=your_pusher_app_id
+PUSHER_SECRET=your_pusher_secret
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## License
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
